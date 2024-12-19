@@ -5,7 +5,7 @@ import os
 def compile_c_file(c_file):
     # Constructing the compile command
     output_file = os.path.splitext(c_file)[0]  # Filename without extension
-    command = ["gcc", c_file, "-o", output_file, "-lm"]  # Include "-lm" for math library
+    command = ["gcc", c_file, "-o", output_file, "-lm"] 
 
     try:
         # Execute the compile command
@@ -35,13 +35,13 @@ def run_python_script(script):
         print(f"Error during execution of {script}: {e}")
 
 # List of Python files to execute first
-python_files_first = ["interpolation.py", "define_parameters.py"]  # Replace with your actual Python scripts
+python_files_first = ["codes\interpolation.py", "codes\define_parameters.py"]
 
 # List of C files to compile and execute
-c_files = ["equations_solver.c"]  # Replace with your C file
+c_files = ["codes\equations_solver.c"]  # Replace with your C file
 
 # List of Python files to execute at the end
-python_files_last = ["test.py"]  # Replace with your final Python script
+python_files_last = ["codes\plot.py"]  # Replace with your final Python script
 
 # Values for t0 and amplitude to run the C program multiple times
 t0_values = [1845, 1883, 1877]  # Adjust these as needed

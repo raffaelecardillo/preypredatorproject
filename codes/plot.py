@@ -39,7 +39,6 @@ ax1.set_title("Model with Peak at t=1883: Prey vs Predator")
 lines = [prey_original, prey_interpolated, predator_original, predator_interpolated]
 labels = [line.get_label() for line in lines]
 
-
 ### Plot 3: Prey vs Predator (Data3) (Left column, Bottom Row)
 ax1 = axs[2, 0]
 ax2 = ax1.twinx()
@@ -70,7 +69,7 @@ pop_predator2 = data3[data3["Time"] == 1875]["Predator"]
 pop_prey2 = data3[data3["Time"] == 1875]["Prey"]
 ### Plot 5: Phase Space for Data3 (Right column, Bottom Row)
 axs[2, 1].plot(data3["Prey"], data3["Predator"], label="Predator/Prey")
-axs[2, 1].scatter(pop_prey2,pop_predator2, color="red", label="Beginning of Peak", s=100, zorder=4)
+axs[2, 1].scatter(pop_prey2, pop_predator2, color="red", label="Beginning of Peak", s=100, zorder=4)
 axs[2, 1].set_title("Predator(Prey)( peak t=1877)")
 axs[2, 1].set_xlabel("Prey")
 axs[2, 1].set_ylabel("Predator")
