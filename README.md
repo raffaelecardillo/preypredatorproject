@@ -30,6 +30,7 @@
 ├── run.py #for windows
 ├── runmac.py #for Mac/Os
 ├── README.md
+├── Report.pdf
 ```
 ## Prerequisites
 Ensure you have the following installed:
