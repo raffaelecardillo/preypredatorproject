@@ -4,14 +4,14 @@ import os
 # Function to compile a C file
 def compile_c_file(c_file):
     # Constructing the compile command
-    output_file = os.path.splitext(c_file)[0]  # Filename without extension
+    output_file = os.path.splitext(c_file)[0] 
     command = ["gcc", c_file, "-o", output_file, "-lm"] 
 
     try:
         # Execute the compile command
         subprocess.run(command, check=True)
         print(f"Compilation succeeded: {c_file}")
-        return output_file  # Return the name of the compiled executable
+        return output_file
     except subprocess.CalledProcessError as e:
         print(f"Error during compilation of {c_file}: {e}")
         return None
@@ -35,17 +35,17 @@ def run_python_script(script):
         print(f"Error during execution of {script}: {e}")
 
 # List of Python files to execute first
-python_files_first = ["codes\interpolation.py", "codes\define_parameters.py"]
+python_files_first = ["codes/interpolation.py", "codes/define_parameters.py"]
 
 # List of C files to compile and execute
-c_files = ["codes\equations_solver.c"]  # Replace with your C file
+c_files = ["codes/equations_solver.c"]
 
 # List of Python files to execute at the end
-python_files_last = ["codes\plot.py"]  # Replace with your final Python script
+python_files_last = ["codes/plot.py"]
 
 # Values for t0 and amplitude to run the C program multiple times
-t0_values = [1845, 1883, 1877]  # Adjust these as needed
-amplitude_values = [0,-15000,-10000]  # Adjust these as needed
+t0_values = [1845, 1883, 1877]
+amplitude_values = [0,-15000,-10000] 
 
 # Run the first two Python files
 for python_file in python_files_first:
