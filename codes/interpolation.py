@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from scipy.interpolate import interp1d
 
-data = pd.read_csv('inputs\data.csv')
+data = pd.read_csv('inputs/data.csv')
 
 # Extract values from data file 
 years = data['Year']
