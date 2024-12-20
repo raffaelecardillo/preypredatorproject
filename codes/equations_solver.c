@@ -65,19 +65,18 @@ int main(int argc, char* argv[]) {
         printf("Usage: %s <t0> <amplitude>\n", argv[0]);
         return 1;
     }
-    double t0 = atof(argv[1]);       // Parse the time for the Gaussian peak
-    double amplitude = atof(argv[2]);
+    double t0 = atof(argv[1]); // Parse the time for the Gaussian peak
+    double amplitude = atof(argv[2]);// Parse the time fot the Gaussian peak
     printf("%f,%f",t0,amplitude);
     read_parameters("parameters.txt", &R, &A, &B, &M);
     // Initial conditions
     double t = 1845.0;         // Start time
-    // The initial populations are chosen equal to those of the data set
     double x = 70000;       // Initial prey population
     double y = 2600;        // Initial predator population
     double h = 0.25;        // Time for rk4 (3 month)
     double t_max = 1935.0;    // End time (90 years)
 // Buffer for the dynamic file path
-char filepath[100]; // Make sure the buffer is large enough for the formatted string
+char filepath[100];
 
 // Create the dynamic file path
 if (t0 == 1845) {

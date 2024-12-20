@@ -1,9 +1,9 @@
 # Importing necessary libraries
-import numpy as np  # For numerical operations
-import pandas as pd  # For data manipulation and reading CSV files
-from scipy.optimize import least_squares  # For solving optimization problems
+import numpy as np  
+import pandas as pd  
+from scipy.optimize import least_squares 
 
-# Reading the interpolated data from a CSV file
+# Reading the interpolated data
 filename = "interpolated_data.csv" 
 data = pd.read_csv(filename)
 
@@ -47,15 +47,15 @@ predator_data = predator_population_filtered
 prey_slope_data = prey_slope_filtered
 predator_slope_data = predator_slope_filtered
 
-# Initial parameter guesses based on literature or prior knowledge
-params0 = [0.5, 0.02, 0.3, 0.01]  # Initial guesses for r, a, b, m
+# Initial parameter guesses based on literature
+params0 = [0.5, 0.02, 0.3, 0.01]  # r, a, b, m
 
 # Use least squares optimization to fit the Lotka-Volterra equations to the data
 result = least_squares(
     lotka_volterra_equations,  # Function defining the equations
     params0,  # Initial parameter estimates
     args=(prey_data, predator_data, prey_slope_data, predator_slope_data),  # Data for fitting
-    method="lm"  # Levenberg-Marquardt method for non-linear least squares
+    method = "lm"  # Levenberg-Marquardt method for non-linear least squares
 )
 
 # Adjust the parameters to have the correct units (convert from 3 months^-1 to year^-1)
@@ -64,12 +64,11 @@ params_fit = result.x * 4
 # Print the optimized parameters to the console
 print(params_fit)
 
-# Save the optimized parameters to a text file for use in other parts of the project (e.g., C code)
+# Save the optimized parameters 
 with open("parameters.txt", "w") as f:
     for param in params_fit:
         f.write(f"{param}\n")  # Write each parameter on a new line
 print("Parameters saved to 'parameters.txt'.")
 
-# Print the adjusted parameters in a readable format
 print("Adjusted parameters (r, a, b, m):")
 print(params_fit)

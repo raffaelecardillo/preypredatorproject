@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 from scipy.interpolate import interp1d
 
-data = pd.read_csv('inputs\data.csv')
+data = pd.read_csv('inputs/data.csv')
 
-# Extract values from data file 
+# Extract values from data file and correct them
 years = data['Year']
 hares = data['Hare']*1000
 lynxes = data['Lynx']*(9/160)*1000
